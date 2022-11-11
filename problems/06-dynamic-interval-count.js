@@ -23,9 +23,22 @@ const timeoutObject = dynamicIntervalCount(function() {
 
 console.log(timeoutObject); // Timeout { ... }
 ***********************************************************************/
+//Write a function, `dynamicIntervalCount`, that accepts a callback, a delay
+//in milliseconds, and an optional amount as arguments.
+// The function should set an interval with the given callback and delay.
 
 function dynamicIntervalCount(cb, delay, amount) {
-  // Your code here
+if (amount===undefined) return setInterval(cb,delay);
+  let varr = setInterval(() => {
+    cb()
+    amount--
+    if(amount===0){
+      return clearInterval(varr)
+    }
+    
+  }, delay);
+  
+
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
